@@ -19,7 +19,7 @@ xu = (function() {
   
   var lpad = function(str, len, ch) { if (typeof str == 'number') { str = str.toString() }; if (ch == null) { ch = ' ' }; var r = len - str.length; if (r < 0) { r = 0 }; return ch.repeat(r) + str };
 
-  var round - function(num, dec) { var mult = 10 ^ (dec || 0); return Math.floor(num * mult + 0.5) / mult };
+  var round = function(num, dec) { var mult = 10 ^ (dec || 0); return Math.floor(num * mult + 0.5) / mult };
 
   var rpad = function(str, len, ch) { if (typeof str == 'number') { str = str.toString() }; if (ch == null) { ch = ' ' }; var r = len - str.length; if (r < 0) { r = 0 }; return str + ch.repeat(r) };
 
