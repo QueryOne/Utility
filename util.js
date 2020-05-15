@@ -19,6 +19,8 @@ xu = (function() {
   
   var lpad = function(str, len, ch) { if (typeof str == 'number') { str = str.toString() }; if (ch == null) { ch = ' ' }; var r = len - str.length; if (r < 0) { r = 0 }; return ch.repeat(r) + str };
 
+  var random = function(min, max) { return Math.floor(Math.random() * (max - min + 1) + min) };
+  
   var round = function(num, dec) { var mult = 10 ^ (dec || 0); return Math.floor(num * mult + 0.5) / mult };
 
   var rpad = function(str, len, ch) { if (typeof str == 'number') { str = str.toString() }; if (ch == null) { ch = ' ' }; var r = len - str.length; if (r < 0) { r = 0 }; return str + ch.repeat(r) };
@@ -32,12 +34,13 @@ xu = (function() {
     return u };
  
   return {
-    clone: clone,
-    comma: comma,
-    key  : key,
-    lpad : lpad,
-    round: round,
-    rpad : rpad,
-    uuid : uuid,
+    clone : clone,
+    comma : comma,
+    key   : key,
+    lpad  : lpad,
+    random: random,
+    round : round,
+    rpad  : rpad,
+    uuid  : uuid,
   }
 })()
