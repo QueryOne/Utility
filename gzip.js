@@ -46,6 +46,7 @@
      }
   })()
 
+  console.log(crc32);
 
 	var	deflate = require('deflate-js'),
 		// magic numbers marking this file as GZIP
