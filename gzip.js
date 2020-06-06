@@ -53,7 +53,8 @@ gzip = (function () {
   })()
 
   console.log(crc32);
-	
+
+ /* https://github.com/beatgammit/deflate-js/blob/master/lib/rawdeflate.js */
  /*
   * $Id: rawdeflate.js,v 0.3 2009/03/01 19:05:05 dankogai Exp dankogai $
   *
