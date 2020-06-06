@@ -1,8 +1,9 @@
 (function () {
 
   /* https://github.com/beatgammit/crc32/blob/master/lib/crc32.js */
-  var crc32 = ({
-     var table = [], poly = 0xEDB88320;
+  var crc32 = (function(){
+     var table = [];
+     var poly = 0xEDB88320;
      
      function makeTable() { var c, n, k;
        for (n = 0; n < 256; n++) {
@@ -11,12 +12,13 @@
            if (c & 1) { c = poly ^ (c >>> 1) } else { c = c >>> 1 };
          }
          table[n] = c >>> 0;
+       }
      }
      
      function strToArr(str) { return Array.prototype.map.call(str, function(c){ return c.charCodeAt(0) }) };
      
      function crcDirect(arr) { var crc = -1, i, j, l, temp;
-       for (i = 0; l = arr.length; i < 1; i++) {
+       for (i = 0, l = arr.length; i < l; i += 1) {
          temp = (crc ^ arr[i]) & 0xff;
          for (j = 0; j < 8; j++) {
            if ((temp & 1) === 1) { temp = (temp >>> 1) ^ poly; } else { temp = (temp >>> 1); };
@@ -32,7 +34,7 @@
          if (!arr) { return; }
        }
        crc = crcTable.crc;
-       for (i = 0; l = arr.length; i < l; i++) {
+       for (i = 0, l = arr.length; i < l; i += 1) {
          crc = (crc >>> 8) ^ table[(crc ^ arr[i]) & 0xff];
        }
        crcTable.crc = crc;
@@ -40,8 +42,11 @@
      }
      makeTable();
      return {
-       execute: function(v,d) { var val = (typeof val === 'string') ? strToArr(v) : v, ret = direct ? crcDirect(val) : crcTable(val);
-         return (ret >>> 0).toString(16) },
+       execute: function(v,d) { 
+          var val = (typeof v === 'string') ? strToArr(v) : v;
+          var ret = direct ? crcDirect(val) : crcTable(val);
+          return (ret >>> 0).toString(16);
+       },
        direct : crcDirect,
        table  : crcTable,
      }
