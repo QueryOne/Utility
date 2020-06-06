@@ -2019,4 +2019,4 @@ gzip = (function () {
 		unzip: unzip,
 		get DEFAULT_LEVEL() { return DEFAULT_LEVEL; },
 	};
-}());
+})();
