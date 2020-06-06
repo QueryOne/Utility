@@ -42,7 +42,7 @@ gzip = (function () {
      }
      makeTable();
      return {
-       execute: function(v,d) { 
+       execute: function(v, direct) { 
           var val = (typeof v === 'string') ? strToArr(v) : v;
           var ret = direct ? crcDirect(val) : crcTable(val);
           return (ret >>> 0).toString(16);
