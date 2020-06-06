@@ -54,21 +54,21 @@ gzip = (function () {
 
   console.log(crc32);
 	
-	/*
- * $Id: rawdeflate.js,v 0.3 2009/03/01 19:05:05 dankogai Exp dankogai $
- *
- * Original:
- *   http://www.onicos.com/staff/iz/amuse/javascript/expert/deflate.txt
- */
+ /*
+  * $Id: rawdeflate.js,v 0.3 2009/03/01 19:05:05 dankogai Exp dankogai $
+  *
+  * Original:
+  *   http://www.onicos.com/staff/iz/amuse/javascript/expert/deflate.txt
+  */
 
-/* Copyright (C) 1999 Masanao Izumo <iz@onicos.co.jp>
- * Version: 1.0.1
- * LastModified: Dec 25 1999
- */
+ /* Copyright (C) 1999 Masanao Izumo <iz@onicos.co.jp>
+  * Version: 1.0.1
+  * LastModified: Dec 25 1999
+  */
 
-/* Interface:
- * data = deflate(src);
- */
+ /* Interface:
+  * data = deflate(src);
+  */
 
   var deflate = (function () {
 	/* constant parameters */
@@ -89,12 +89,6 @@ gzip = (function () {
 		BITS = 16,
 	// for SMALL_MEM
 		LIT_BUFSIZE = 0x2000,
-//		HASH_BITS = 13,
-	//for MEDIUM_MEM
-	//	LIT_BUFSIZE = 0x4000,
-	//	HASH_BITS = 14,
-	// for BIG_MEM
-	//	LIT_BUFSIZE = 0x8000,
 		HASH_BITS = 15,
 		DIST_BUFSIZE = LIT_BUFSIZE,
 		HASH_SIZE = 1 << HASH_BITS,
@@ -1749,6 +1743,8 @@ gzip = (function () {
 
 	return deflate;
     }());
+	
+    console.log(deflate);
 
 	// var	deflate = require('deflate-js'),
 		// magic numbers marking this file as GZIP
