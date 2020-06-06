@@ -1,4 +1,4 @@
-(function () {
+gzip = (function () {
 
   /* https://github.com/beatgammit/crc32/blob/master/lib/crc32.js */
   var crc32 = (function(){
