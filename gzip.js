@@ -1741,7 +1741,10 @@ gzip = (function () {
 		return buff;
 	}
 
-	return deflate;
+	return {
+	  deflate: deflate,
+	  get DEFAULT_LEVEL() { return DEFAULT_LEVEL; },
+	}
     }());
 	
     console.log(deflate);
