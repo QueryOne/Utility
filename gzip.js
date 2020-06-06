@@ -1925,7 +1925,7 @@ gzip = (function () {
 			putByte(byte, out);
 		});
 
-		putLong(parseInt(crc32(data), 16), out);
+		putLong(parseInt(crc32.execute(data), 16), out);
 		putLong(data.length, out);
 
 		return out;
